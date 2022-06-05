@@ -35,9 +35,9 @@ public class BankPosts {
     @Column(nullable = false)
     private Long bank_num; // 금액
 
-    private boolean bank_flag; // 지출, 수익 타입
+    private boolean bank_flag; // 소비, 수입 타입
 
-    private LocalDate bank_date; // 등록 날짜
+    private LocalDate bank_date; // 사용 날짜
 
 
     @Builder

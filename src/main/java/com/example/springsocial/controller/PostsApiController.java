@@ -19,7 +19,8 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts/write") // 글 저장
-    public Long save(@RequestBody PostsSaveRequestDto requestDto){
+    public Long save(@RequestBody PostsSaveRequestDto requestDto)
+    {
         return postsService.save(requestDto);
     }
 
@@ -35,7 +36,8 @@ public class PostsApiController {
     }
 
     @GetMapping("/api/v1/posts/{id}") // 특정 글 조회
-    public PostsResponseDto findByID (@PathVariable Long id){
+    public PostsResponseDto findByID (@PathVariable Long id)
+    {
         return postsService.findById(id);
     }
 

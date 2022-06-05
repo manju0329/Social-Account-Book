@@ -38,6 +38,12 @@ public class User {
 
     private String providerId;
 
+    private Long total;
+
+    private Long plus;
+
+    private Long minus;
+
     public Long getId() {
         return id;
     }
@@ -101,4 +107,29 @@ public class User {
     public void setProviderId(String providerId) {
         this.providerId = providerId;
     }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
+    }
+
+    public Long getPlus() {
+        return plus;
+    }
+
+    public void setPlus(Long plus) {
+        this.plus = plus;
+    }
+
+    public Long getMinus() {
+        return minus;
+    }
+
+    public void setMinus(Long minus) {
+        this.minus = minus;
+    }
+
 }

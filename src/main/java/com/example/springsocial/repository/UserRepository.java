@@ -1,5 +1,6 @@
 package com.example.springsocial.repository;
 
+import com.example.springsocial.model.user.Friend;
 import com.example.springsocial.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
