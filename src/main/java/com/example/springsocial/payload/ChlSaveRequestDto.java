@@ -1,7 +1,10 @@
 package com.example.springsocial.payload;
 
 import com.example.springsocial.model.challenge.Challenge;
+import com.example.springsocial.model.challenge.ChallengeMember;
 import lombok.Builder;
+
+import java.util.Collection;
 
 public class ChlSaveRequestDto {
 
@@ -13,12 +16,16 @@ public class ChlSaveRequestDto {
 
     private Long chl_fre; // 챌린지를 진행할 카테고리의 사용 횟수
 
+    private Collection<ChallengeMember> challengeMembers;
+
     @Builder
-    public ChlSaveRequestDto(Long chl_id, boolean chl_result, Long chl_cat, Long chl_fre){
+    public ChlSaveRequestDto(Long chl_id, boolean chl_result, Long chl_cat, Long chl_fre
+    , Collection<ChallengeMember> challengeMembers){
         this.chl_id = chl_id;
         this.chl_result = chl_result;
         this.chl_cat = chl_cat;
         this.chl_fre = chl_fre;
+        this.challengeMembers = challengeMembers;
     }
 
     public Challenge toEntity(){
@@ -27,6 +34,8 @@ public class ChlSaveRequestDto {
                 .chl_result(chl_result)
                 .chl_cat(chl_cat)
                 .chl_fre(chl_fre)
+                .challengeMember(challengeMembers)
                 .build();
     }
+
 }

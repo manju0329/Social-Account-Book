@@ -15,5 +15,7 @@ public interface BankRepository extends JpaRepository<BankPosts, Long> {
 
     List<BankPosts> findByUser_id(Long user_id);
 
+    List<BankPosts> findByUser_idAndCategory_id(Long user_id, Long cat_id);
+
     Optional<BankPosts> findByUser_idAndBank_id(Long user_id, Long bank_id);
 }
