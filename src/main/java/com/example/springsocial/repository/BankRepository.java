@@ -10,12 +10,12 @@ import java.util.Optional;
 
 public interface BankRepository extends JpaRepository<BankPosts, Long> {
 
-    @Query("SELECT b FROM bank_posts b ORDER BY b.id DESC")
-    List<BankPosts> findAllDesc();
+    /*@Query("SELECT b FROM bank_posts b ORDER BY b.id DESC")
+    List<BankPosts> findAllDesc();*/
 
-    List<BankPosts> findByUser_id(Long user_id);
+    List<BankPosts> findByUserid(Long user_id);
 
-    List<BankPosts> findByUser_idAndCategory_id(Long user_id, Long cat_id);
+    List<BankPosts> findByUseridAndCategoryid(Long user_id, Long cat_id);
 
-    Optional<BankPosts> findByUser_idAndBank_id(Long user_id, Long bank_id);
+    Optional<BankPosts> findByUseridAndBankid(Long user_id, Long bank_id);
 }

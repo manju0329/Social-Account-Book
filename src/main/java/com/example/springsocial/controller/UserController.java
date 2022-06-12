@@ -39,9 +39,9 @@ public class UserController {
     @DeleteMapping("/friend/{id}") // 친구 삭제
     public Long deleteFriend(@RequestBody FriendSaveRequestDto requestDto,
                                @CurrentUser UserPrincipal userPrincipal){
-        friendService.delete(userPrincipal.getId(), requestDto.toEntity().getUser_to());
+        friendService.delete(userPrincipal.getId(), requestDto.toEntity().getUserto());
 
-        return requestDto.toEntity().getUser_to();
+        return requestDto.toEntity().getUserto();
     }
 
     @PutMapping("/friend/{id}") // 친구 추가

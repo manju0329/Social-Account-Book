@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ChallengeMemberRepository extends JpaRepository<ChallengeMember, Long> {
 
-    List<ChallengeMember> findByUser_id(Long id);
+    List<ChallengeMember> findByUserid(Long id);
 
-    List<ChallengeMember> findByChl_id(Long chl_id);
+    List<ChallengeMember> findByChlid(Long chl_id);
 }

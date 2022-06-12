@@ -18,9 +18,9 @@ public class BankListResponseDto {
     private LocalDate bank_date; // 등록 날짜
 
     public BankListResponseDto(BankPosts entity){
-        this.bank_id = entity.getBank_id();
-        this.user_id = entity.getUser_id();
-        this.category_id = entity.getCategory_id();
+        this.bank_id = entity.getBankid();
+        this.user_id = entity.getUserid();
+        this.category_id = entity.getCategoryid();
         this.bank_name = entity.getBank_name();
         this.bank_num = entity.getBank_num();
         this.bank_flag = entity.isBank_flag();

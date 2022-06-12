@@ -16,17 +16,19 @@ public class BankService {
 
     private final BankRepository bankRepository;
 
+    // OCR 형식 입력
+
     // 가계부 저장
     @Transactional
     public Long save(BankSaveRequestDto requestDto)
     {
-        return bankRepository.save(requestDto.toEntity()).getBank_id();
+        return bankRepository.save(requestDto.toEntity()).getBankid();
     }
 
     // 특정 가계부 조회
     @Transactional(readOnly = true)
     public BankResponseDto findOne(Long user_id, Long bank_id){
-        BankPosts entity = bankRepository.findByUser_idAndBank_id(user_id, bank_id).orElseThrow(()->
+        BankPosts entity = bankRepository.findByUseridAndBankid(user_id, bank_id).orElseThrow(()->
                 new IllegalArgumentException("해당 가계부 내역이 없습니다. bank_id= " + bank_id));
 
         return new BankResponseDto(entity);
@@ -36,7 +38,7 @@ public class BankService {
     @Transactional(readOnly = true)
     public List<BankListResponseDto> findAll(Long user_id){
 
-        return bankRepository.findByUser_id(user_id).stream()
+        return bankRepository.findByUserid(user_id).stream()
                 .map(BankListResponseDto::new)
                 .collect(Collectors.toList());
 

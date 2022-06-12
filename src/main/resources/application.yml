@@ -24,15 +24,15 @@ spring:
                 - email
                 - profile
             facebook:
-              clientId:
-              clientSecret:
+              clientId: 137685191866-re0l8qip4ekvkq0l5krnlkmvil7hqerj.apps.googleusercontent.com
+              clientSecret: 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
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - email
                 - public_profile
             github:
-              clientId:
-              clientSecret:
+              clientId: 137685191866-re0l8qip4ekvkq0l5krnlkmvil7hqerj.apps.googleusercontent.com
+              clientSecret: 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
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - user:email

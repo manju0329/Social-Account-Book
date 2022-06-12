@@ -18,16 +18,17 @@ public class ChallengeMember {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chl_seq;
 
-    @ManyToOne(fetch = FetchType.LAZY) // 양방향 연결
-    @Column(name="chl_id")
-    private Long chl_id;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Challenge.class) // 양방향 연결
+    @JoinColumn(name="chlid")
+    private Long chlid;
 
-    private Long user_id;
+    @Column(name = "user_id")
+    private Long userid;
 
     @Builder
     public ChallengeMember(Long chl_seq, Long chl_id, Long user_id){
         this.chl_seq = chl_seq;
-        this.chl_id = chl_id;
-        this.user_id = user_id;
+        this.chlid = chl_id;
+        this.userid = user_id;
     }
 }

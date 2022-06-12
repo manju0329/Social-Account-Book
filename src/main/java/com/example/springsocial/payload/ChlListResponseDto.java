@@ -11,8 +11,8 @@ public class ChlListResponseDto {
     private Long user_id;
 
     public ChlListResponseDto(ChallengeMember entity){
-        this.chl_id = entity.getChl_id();
-        this.user_id = entity.getUser_id();
+        this.chl_id = entity.getChlid();
+        this.user_id = entity.getUserid();
     }
 
 

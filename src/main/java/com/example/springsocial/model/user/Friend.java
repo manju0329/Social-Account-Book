@@ -21,17 +21,17 @@ public class Friend {
     @Id
     private Long seq;
 
-    @Column(nullable = false)
-    private Long user_from;
+    @Column(nullable = false, name = "user_from")
+    private Long userfrom;
 
-    @Column(nullable = false)
-    private Long user_to;
+    @Column(nullable = false, name = "user_to")
+    private Long userto;
 
 
     @Builder
     public Friend(Long seq, Long user_from, Long user_to){
         this.seq = seq;
-        this.user_from = user_from;
-        this.user_to = user_to;
+        this.userfrom = user_from;
+        this.userto = user_to;
     }
 }

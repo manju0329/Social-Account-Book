@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface FriendRepository extends JpaRepository<Friend, Long> {
 
-    Optional<Friend> findByUser_toAndUser_from(Long user_from, Long user_to);
+    Optional<Friend> findByUsertoAndUserfrom(Long user_from, Long user_to);
 }

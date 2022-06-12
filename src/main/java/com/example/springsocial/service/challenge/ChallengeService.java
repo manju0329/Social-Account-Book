@@ -24,7 +24,6 @@ public class ChallengeService {
 
     private final ChallengeRepository challengeRepository;
     private final ChallengeMemberRepository challengeMemberRepository;
-    private final ChlMemSaveRequestDto chlMemSaveRequestDto;
     private final BankRepository bankRepository;
 
     public Long getCurrentUser(@CurrentUser UserPrincipal userPrincipal) {
@@ -35,7 +34,7 @@ public class ChallengeService {
     //챌린지 등록
     public Long save(ChlSaveRequestDto requestDto){
 
-        Long chl_id = challengeRepository.save(requestDto.toEntity()).getChl_id();
+        Long chl_id = challengeRepository.save(requestDto.toEntity()).getChlid();
 
         return chl_id;
     }
@@ -43,7 +42,7 @@ public class ChallengeService {
     // 챌린지 전체조회(유저의 참여 챌린지 전체 리스트 가져오기) -> 리스트에서는 챌린지id만 출력필요
     @Transactional
     public List<ChlListResponseDto> findAllbyID(Long id){ // id가 진행중인 모든 챌린지 list
-        return challengeMemberRepository.findByUser_id(id).stream()
+        return challengeMemberRepository.findByUserid(id).stream()
                 .map(ChlListResponseDto::new)
                 .collect(Collectors.toList());
 
@@ -52,13 +51,13 @@ public class ChallengeService {
     @Transactional
     // 챌린지 ID를 통한 참여멤버 목록 찾기
     public List<Long> findChlMem(Long chl_id){
-        List chl_list = challengeMemberRepository.findByChl_id(chl_id);
+        List chl_list = challengeMemberRepository.findByChlid(chl_id);
         List<Long> chl_mem = new ArrayList<Long>();
 
         for(int i = 0; i < chl_list.size(); i++){
             ChallengeMember challengeMember = (ChallengeMember)chl_list.get(i);
-            challengeMember.getUser_id();
-            chl_mem.add(challengeMember.getUser_id());
+            challengeMember.getUserid();
+            chl_mem.add(challengeMember.getUserid());
         }
         
         return chl_mem;
@@ -78,14 +77,14 @@ public class ChallengeService {
     @Transactional
     // 2. 챌린지에 설정된 목표카테고리와 목표횟수/금액를 참여멤버의 저장된 가계부에서 가져오기
     public LinkedHashMap<Long, Long> calResult(Challenge chl){
-        Long chl_id = chl.getChl_id();
+        Long chl_id = chl.getChlid();
         Long chl_cat = chl.getChl_cat(); // 조회할 목표 카테고리
 
         List member = (List) chl.getChallengeMember(); // 참여 멤버 list
         LinkedHashMap result = new LinkedHashMap<Long, Long>(); // <참여멤버ID, 현재횟수>
 
         for(int i=0; i < member.size(); i++){
-            List chl_result = bankRepository.findByUser_idAndCategory_id((Long)member.get(i), chl_cat);
+            List chl_result = bankRepository.findByUseridAndCategoryid((Long)member.get(i), chl_cat);
             Long fre_result = Long.valueOf(chl_result.size());
             result.put(member.get(i), fre_result);
         }

@@ -16,7 +16,7 @@ public class ChlResponseDto {
     private Collection<ChallengeMember> challengeMembers;
 
     public ChlResponseDto(Challenge entity){
-       this.chl_id = entity.getChl_id();
+       this.chl_id = entity.getChlid();
        this.chl_result = entity.isChl_result();
        this.chl_cat = entity.getChl_cat();
        this.chl_fre = entity.getChl_fre();
