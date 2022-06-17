@@ -16,8 +16,6 @@ public class BankService {
 
     private final BankRepository bankRepository;
 
-    // OCR 형식 입력
-
     // 가계부 저장
     @Transactional
     public Long save(BankSaveRequestDto requestDto)
@@ -43,9 +41,9 @@ public class BankService {
                 .collect(Collectors.toList());
 
 
-        // posts의 stream을 map을 이용해서 PostsListResponseDto로 변환 -> List 타입으로 반환
     }
 
+    // 특정 가계부 삭제
     @Transactional
     public void delete (Long id){
         BankPosts bankPostsposts = bankRepository.findById(id)

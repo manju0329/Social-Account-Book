@@ -6,6 +6,7 @@ import lombok.Builder;
 
 import java.time.LocalDate;
 
+// 가계부 저장 시 대응하는 DTO
 
 public class BankSaveRequestDto {
     private Long user_id;

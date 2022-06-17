@@ -41,7 +41,7 @@ public class ChallengeService {
 
     // 챌린지 전체조회(유저의 참여 챌린지 전체 리스트 가져오기) -> 리스트에서는 챌린지id만 출력필요
     @Transactional
-    public List<ChlListResponseDto> findAllbyID(Long id){ // id가 진행중인 모든 챌린지 list
+    public List<ChlListResponseDto> findAllbyID(Long id){ // 현재 유저id가 진행중인 모든 챌린지 list
         return challengeMemberRepository.findByUserid(id).stream()
                 .map(ChlListResponseDto::new)
                 .collect(Collectors.toList());

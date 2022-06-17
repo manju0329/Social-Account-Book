@@ -20,15 +20,15 @@ public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 글 번호
 
     @Column(length = 500, nullable = false)
-    private String title;
+    private String title; // 글 제목
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
+    private String content; // 글 내용
 
-    private String author;
+    private String author; // 글 작성자
 
     @Builder
     public Posts(String title, String content, String author){

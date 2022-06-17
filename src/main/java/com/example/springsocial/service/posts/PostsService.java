@@ -14,19 +14,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor // final이 선언된 모든 필드를 인자값으로 하는 생성자를 만들어줌
+@RequiredArgsConstructor
 @Service
 public class PostsService {
 
     private final PostsRepository postsRepository;
 
-    @Transactional
+    @Transactional // 게시글 저장
     public Long save(PostsSaveRequestDto requestDto)
     {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
-    @Transactional
+    @Transactional // 게시글 수정
     public Long update(Long id, PostsUpdateRequestDto requestDto){
         Posts posts =  postsRepository.findById(id).orElseThrow(()->
                 new IllegalArgumentException("해당 게시글이 없습니다. id= " + id));
@@ -36,6 +36,7 @@ public class PostsService {
         return id;
     }
 
+    // 게시글ID로 검색
     @Transactional(readOnly = true)
     public PostsResponseDto findById(Long id){
         Posts entity = postsRepository.findById(id).orElseThrow(()->
@@ -44,6 +45,7 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+    // 전체 게시글 조회
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findAllDesc(){
         return postsRepository.findAllDesc().stream()
@@ -52,6 +54,7 @@ public class PostsService {
         // posts의 stream을 map을 이용해서 PostsListResponseDto로 변환 -> List 타입으로 반환
     }
 
+    // 특정 게시글 삭제
     @Transactional
     public void delete (Long id){
         Posts posts = postsRepository.findById(id)

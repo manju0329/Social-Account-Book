@@ -3,6 +3,7 @@ package com.example.springsocial.payload;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+// 로그인 요청을 처리하는 DTO
 
 public class LoginRequest {
     @NotBlank

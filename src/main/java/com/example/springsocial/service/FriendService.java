@@ -18,6 +18,7 @@ public class FriendService {
     private final UserRepository userRepository;
     private final FriendRepository friendRepository;
 
+    // 친구 추가 -> 친구 관리 Entity에 저장
     @Transactional
     public Long invite(Long id, FriendSaveRequestDto requestDto){
 
@@ -25,6 +26,7 @@ public class FriendService {
         return friendRepository.save(requestDto.toEntity()).getSeq();
     }
 
+    // 친구 삭제 -> 양 쪽 모두에게 삭제
     @Transactional
     public void delete(Long user_from, Long user_to){
         Friend friend = friendRepository.findByUsertoAndUserfrom(user_from, user_to)

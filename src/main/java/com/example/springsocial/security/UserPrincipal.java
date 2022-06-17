@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+// 현재 로그인한 유저 세션 관리
 public class UserPrincipal implements OAuth2User, UserDetails {
     private Long id;
     private String email;

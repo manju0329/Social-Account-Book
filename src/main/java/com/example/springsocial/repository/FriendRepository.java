@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface FriendRepository extends JpaRepository<Friend, Long> {
 
+    // 유저ID를 통해 친구 관계 이미 존재하는지 찾기
     Optional<Friend> findByUsertoAndUserfrom(Long user_from, Long user_to);
 }

@@ -3,7 +3,10 @@ spring:
         url: jdbc:mysql://localhost:3306/spring_social?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
         username: root
         password: 3050
-
+    servlet:
+        multipart:
+          max-file-size: 10MB
+          max-request-size: 10MB
     jpa:
         show-sql: true
         hibernate:
@@ -42,6 +45,18 @@ spring:
               authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
               tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
               userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture.width(250).height(250)
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA47LPLGSWEESBPNGR
+      secret-key: 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
+    s3:
+      bucket: social-iamge
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
 app:
   auth:
     tokenSecret: 04ca023b39512e46d0c2cf4b48d5aac61d34302994c87ed4eff225dcf3b0a218739f3897051a057f9b846a69ea2927a587044164b7bae5e1306219d50b588cb1
@@ -49,10 +64,6 @@ app:
   cors:
     allowedOrigins: http://localhost:3000,http://localhost:8080
   oauth2:
-    # After successfully authenticating with the OAuth2 Provider,
-    # we'll be generating an auth token for the user and sending the token to the
-    # redirectUri mentioned by the client in the /oauth2/authorize request.
-    # We're not using cookies because they won't work well in mobile clients.
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
       - myandroidapp://oauth2/redirect

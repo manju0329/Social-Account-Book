@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// 챌린지와 챌린지멤버 저장 DTO
 
 @Getter
 @Setter

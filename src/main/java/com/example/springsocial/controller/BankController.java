@@ -1,27 +1,37 @@
 package com.example.springsocial.controller;
 
-import com.example.springsocial.model.bank.BankPosts;
-import com.example.springsocial.payload.BankListResponseDto;
 import com.example.springsocial.payload.BankResponseDto;
 import com.example.springsocial.payload.BankSaveRequestDto;
 import com.example.springsocial.security.CurrentUser;
 import com.example.springsocial.security.UserPrincipal;
 import com.example.springsocial.service.bank.BankService;
+import com.example.springsocial.service.bank.image.FileUploadService;
+import com.example.springsocial.service.bank.image.OCRService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import java.io.IOException;
 
 @RequiredArgsConstructor
 @RestController
 public class BankController {
 
     private final BankService bankService;
+    private final FileUploadService fileUploadService;
+    private final OCRService ocrService;
 
     @PostMapping("/bank/write") //가계부 등록
     public Long save(@RequestBody BankSaveRequestDto requestDto){
         return bankService.save(requestDto);
+    }
+
+    @PostMapping("/bank/write/img") // 이미지 방식 등록
+    public String upload(Model model,@RequestPart MultipartFile multipartFile, @RequestParam int tag) throws IOException {
+        String imgUrl = fileUploadService.uploadImage(multipartFile);
+        model.addAttribute("img", ocrService.convert(imgUrl, tag));
+        return "img";
     }
 
     @GetMapping("/bank") //유저의 전체 가계부 조회

@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+// 전체 글 목록 조회 DTO
 @Getter
 public class PostsListResponseDto {
     private Long id;

@@ -15,14 +15,14 @@ import javax.validation.constraints.NotNull;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 유저 고유ID
 
     @Column(nullable = false)
-    private String name;
+    private String name; // 유저 이름
 
     @Email
     @Column(nullable = false)
-    private String email;
+    private String email; // 유저 이메일
 
     private String imageUrl;
 
@@ -34,11 +34,11 @@ public class User {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private AuthProvider provider;
+    private AuthProvider provider; // 외부 로그인 타입 구분
 
     private String providerId;
 
-    private Long total;
+    private Long total; // 통계확인 용 유저의 현재 가계부 상태
 
     private Long plus;
 

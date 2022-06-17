@@ -15,6 +15,8 @@ public class HttpCookieOAuth2AuthorizationRequestRepository implements Authoriza
     public static final String REDIRECT_URI_PARAM_COOKIE_NAME = "redirect_uri";
     private static final int cookieExpireSeconds = 180;
 
+    // 로그인 요청으로 생성된 COOKIE 관리
+
     @Override
     public OAuth2AuthorizationRequest loadAuthorizationRequest(HttpServletRequest request) {
         return CookieUtils.getCookie(request, OAUTH2_AUTHORIZATION_REQUEST_COOKIE_NAME)

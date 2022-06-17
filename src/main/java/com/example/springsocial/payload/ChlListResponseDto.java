@@ -4,6 +4,8 @@ package com.example.springsocial.payload;
 import com.example.springsocial.model.challenge.ChallengeMember;
 import lombok.Getter;
 
+// 챌린지 리스트 DTO
+
 @Getter
 public class ChlListResponseDto {
 

@@ -4,11 +4,15 @@ package com.example.springsocial.payload;
 import com.example.springsocial.model.bank.BankPosts;
 import com.example.springsocial.model.posts.Posts;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import java.time.LocalDate;
 
+// 단일 가계부 내역 대응 DTO
+
 @Getter
+@Setter
 public class BankResponseDto {
 
     private Long bank_id; // 가계부 등록번호

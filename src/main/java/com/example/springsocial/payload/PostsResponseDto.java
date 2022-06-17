@@ -3,6 +3,7 @@ package com.example.springsocial.payload;
 import com.example.springsocial.model.posts.Posts;
 import lombok.Getter;
 
+// 개별 글 조회 DTO
 @Getter
 public class PostsResponseDto {
     private Long id;

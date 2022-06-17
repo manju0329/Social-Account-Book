@@ -5,6 +5,8 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 
+// 가계부 내역 리스트 DTO
+
 @Getter
 public class BankListResponseDto {
 

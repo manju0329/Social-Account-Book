@@ -6,6 +6,8 @@ import lombok.Builder;
 
 import java.util.Collection;
 
+// 챌린지 저장 대응 DTO
+
 public class ChlSaveRequestDto {
 
     private Long chl_id; // 챌린지 번호

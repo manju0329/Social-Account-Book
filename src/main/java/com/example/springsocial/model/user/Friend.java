@@ -19,13 +19,13 @@ import javax.persistence.Table;
 public class Friend {
 
     @Id
-    private Long seq;
+    private Long seq; // 친구 등록번호
 
     @Column(nullable = false, name = "user_from")
-    private Long userfrom;
+    private Long userfrom; // user A
 
     @Column(nullable = false, name = "user_to")
-    private Long userto;
+    private Long userto; // user B
 
 
     @Builder

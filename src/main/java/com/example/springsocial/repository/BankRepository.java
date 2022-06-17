@@ -10,12 +10,12 @@ import java.util.Optional;
 
 public interface BankRepository extends JpaRepository<BankPosts, Long> {
 
-    /*@Query("SELECT b FROM bank_posts b ORDER BY b.id DESC")
-    List<BankPosts> findAllDesc();*/
-
+    // 유저ID로 전체 가계부 내역 조회
     List<BankPosts> findByUserid(Long user_id);
 
+    // 유저ID와 카테고리ID로 챌린지 계산용 내역 조회
     List<BankPosts> findByUseridAndCategoryid(Long user_id, Long cat_id);
 
+    // 단일 가계부 내역 조회
     Optional<BankPosts> findByUseridAndBankid(Long user_id, Long bank_id);
 }

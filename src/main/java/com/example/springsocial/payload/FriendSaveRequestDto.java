@@ -3,7 +3,7 @@ package com.example.springsocial.payload;
 import com.example.springsocial.model.user.Friend;
 import lombok.Builder;
 
-public class FriendSaveRequestDto {
+public class    FriendSaveRequestDto {
 
     private Long seq;
 

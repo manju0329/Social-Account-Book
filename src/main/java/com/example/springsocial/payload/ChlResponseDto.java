@@ -6,6 +6,8 @@ import lombok.Getter;
 
 import java.util.Collection;
 
+// 개별 챌린지 조회 DTO
+
 @Getter
 public class ChlResponseDto {
 
